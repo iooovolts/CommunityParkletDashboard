@@ -1,0 +1,378 @@
+.Mainbody 
+{
+    padding: 20px;
+    margin-bottom: 0px;
+    
+}
+.MyDate 
+{
+    width: 100px;
+    margin-left: 30px;
+    margin-right: 60px;
+}
+
+.row 
+{
+    width:800px;
+    height:65px;
+}
+
+.col1 
+{
+    margin-top:30px;
+    width: 210px;
+    float:left;
+    height:auto;
+}
+
+.col2
+{
+    width:400px;
+    float:right;
+    margin-right:190px;
+}
+
+.lblStatus
+{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+.ddlstStatus
+{
+    width: 280px;
+    margin-left: 10px;
+}
+
+.lblReference 
+{
+    margin-top: 20px;
+}
+
+.txtbxReference 
+{
+    width: 20px;
+    margin-right: 10px;
+}
+
+.lblStatus 
+{
+    margin-top: 20px;
+}
+
+.ddlstStatus 
+{
+    width: 200px;
+    margin-left: 1px;
+    margin-right: 20px;
+}
+
+.lblRequestType 
+{
+    margin-left: 20px;
+    margin-right: 1px;
+    margin-top: 20px;
+}
+
+.ddlstRequestType 
+{
+    width: 230px;
+    margin-left: 10px;
+}
+
+.button
+{
+    width: 100px;
+    margin-left: 1000px;
+}
+
+.btnFVDSearch 
+{
+    width: 200px;
+    margin-left: 100px;
+}
+
+.btnExport 
+{
+    width: 200px;
+    margin-left: 100px;
+}
+
+.lblTeam 
+{
+    margin-left: 20px;
+    margin-right: 1px;
+    margin-top: 20px;
+}
+
+.MyExcel {
+    margin-right: 733px;
+}
+
+.MyLink
+{
+    margin-left: 1050px;
+}
+
+.grvFVDashboard 
+{
+    background-color: #fff;
+    margin: 5px 6px 10px 0;
+    border: solid 1px #525252;
+    border-collapse: collapse;
+    font-family: Calibri;
+    color: #474747;
+}
+    .grvFVDashboard td 
+    {
+        padding: 2px;
+        border: solid 1px #c1c1c1;
+    }
+
+    .grvFVDashboard th 
+    {
+        padding: 4px 2px;
+        color: #fff;
+        background: #5c5c5c url(Images/grid-header.png) repeat-x top;
+        border-left: solid 1px #525252;
+        font-size: 0.9em;
+    }
+
+    .grvFVDashboard .alt 
+    {
+        background: #fcfcfc url(Images/grid-alt.png) repeat-x top;
+    }
+
+    .grvFVDashboard .pgr 
+    {
+        background: #363670 url(Images/grid-pgr.png) repeat-x top;
+    }
+
+        .grvFVDashboard .pgr table 
+        {
+            margin: 3px 0;
+        }
+
+        .grvFVDashboard .pgr td 
+        {
+            border-width: 0;
+            padding: 0 6px;
+            border-left: solid 1px #666;
+            font-weight: bold;
+            color: #fff;
+            line-height: 12px;
+        }
+
+        .grvFVDashboard .pgr a 
+        {
+            color: Gray;
+            text-decoration: none;
+        }
+
+        .grvFVDashboard a:hover 
+        {
+            color: #000;
+            text-decoration: none;
+        }
+
+.grvFVDashboardBodyFullView 
+{
+    padding-left: 50px;
+    padding-right: 50px;
+} 
+
+.Grid 
+{
+    background-color: #fff;
+    margin: 5px 150px 10px 0;
+    border: solid 1px #525252;
+    border-collapse: collapse;
+    font-family: Calibri;
+    color: #474747;
+}
+
+    .Grid td 
+    {
+        padding: 2px;
+        border: solid 1px #c1c1c1;
+    }
+
+    .Grid th 
+    {
+        padding: 4px 2px;
+        color: #fff;
+        background: #5c5c5c url(Images/grid-header.png) repeat-x top;
+        border-left: solid 1px #525252;
+        font-size: 0.9em;
+    }
+
+    .Grid .alt 
+    {
+        background: #fcfcfc url(Images/grid-alt.png) repeat-x top;
+    }
+
+    .Grid .pgr 
+    {
+        background: #363670 url(Images/grid-pgr.png) repeat-x top;
+    }
+
+        .Grid .pgr table 
+        {
+            margin: 3px 0;
+        }
+
+        .Grid .pgr td 
+        {
+            border-width: 0;
+            padding: 0 6px;
+            border-left: solid 1px #666;
+            font-weight: bold;
+            color: #fff;
+            line-height: 12px;
+        }
+
+        .Grid .pgr a 
+        {
+            color: Gray;
+            text-decoration: none;
+        }
+
+        .Grid .pgr a:hover 
+        {
+            color: #000;
+            text-decoration: none;
+        }
+
+.GridBody 
+{
+    padding-left: 150px;
+}
+
+.lblUsername 
+{
+    color: #fff;
+    font-family: Calibri;
+    font-weight: bold;
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
+.col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
+.col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md,
+.col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg,
+.col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl,
+.col-xl-auto {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+.col-auto {
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    width: auto;
+    max-width: none;
+}
+
+.col-1 {
+    -ms-flex: 0 0 8.333333%;
+    flex: 0 0 8.333333%;
+    max-width: 8.333333%;
+}
+
+.col-2 {
+    -ms-flex: 0 0 16.666667%;
+    flex: 0 0 16.666667%;
+    max-width: 16.666667%;
+}
+
+.col-3 {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+.col-4 {
+    -ms-flex: 0 0 33.333333%;
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+}
+
+.col-5 {
+    -ms-flex: 0 0 41.666667%;
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%;
+}
+
+.col-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.col-7 {
+    -ms-flex: 0 0 58.333333%;
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+}
+
+.col-8 {
+    -ms-flex: 0 0 66.666667%;
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+}
+
+.col-9 {
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%;
+}
+
+.col-10 {
+    -ms-flex: 0 0 83.333333%;
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%;
+}
+
+.col-11 {
+    -ms-flex: 0 0 91.666667%;
+    flex: 0 0 91.666667%;
+    max-width: 91.666667%;
+}
+
+.col-12 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+#navbar-user {
+    color: #ffffff;
+}
+
+#chart_container {
+    width: 400px;
+    height: 400px;
+    border: 1px solid #ddd;
+    padding: 1px;
+    border-radius: 4px;
+}

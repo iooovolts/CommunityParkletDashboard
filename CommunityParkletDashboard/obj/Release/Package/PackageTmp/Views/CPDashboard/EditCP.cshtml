@@ -1,0 +1,98 @@
+﻿@using System.Configuration
+@model CommunityParkletDashboard.Models.EditCPModel
+
+@{
+    ViewBag.Title = "Edit Parklet Application";
+}
+
+<h2>Edit Parklet Application</h2>
+<input type="button" value="Back" onclick="location.href='@Url.Action("CPDashboard", "CPDashboard")'" />
+<p>&nbsp;</p>
+
+@using (Html.BeginForm("EditCP", "CPDashboard", new { refNumber = Model.Item1.REF_NUMBER }, FormMethod.Post, null))
+{
+    <p>
+        Reference Number:
+        @Html.DisplayFor(i => i.Item1.REF_NUMBER)
+    </p>
+    <p>
+        Status:
+        @Html.DropDownListFor(i => i.Item1.STATUS, new List<SelectListItem>()
+{
+new SelectListItem{Text = "Pending", Value = "Pending"},
+new SelectListItem{Text = "Completed", Value = "Completed"},
+new SelectListItem{Text = "Refused", Value = "Refused"}
+})
+    </p>
+    <p>
+        Name:
+        @Html.EditorFor(i => i.Item1.NAME)
+    </p>
+    <p>
+        Email:
+        @Html.EditorFor(i => i.Item1.EMAIL)
+    </p>
+    <p>
+        Phone:
+        @Html.EditorFor(i => i.Item1.PHONE)
+    </p>
+    <p>
+        Notes:
+        @Html.TextAreaFor(i => i.Item1.NOTES)
+    </p>
+    <p>
+        24hr Contact:
+        @Html.EditorFor(i => i.Item1.PARKLET_24HR_CONTACT)
+    </p>
+    <p>
+        Timeframe:
+        @Html.EditorFor(i => i.Item1.PARKLET_TIME_FRAME)
+    </p>
+    foreach (var item in Model.Item2.lParkletApplicationDtos)
+    {
+        <p>
+            Title:
+            @Html.DisplayFor(i => item.ParkletTitle)
+        </p>
+        <p>
+            Description:
+            @Html.DisplayFor(i => item.ParkletDescription)
+        </p>
+        <p>
+            Type:
+            @Html.DisplayFor(i => item.Type)
+        </p>
+        <p>
+            Address:
+            @Html.DisplayFor(i => item.Address)
+        </p>
+        <p>
+            Parklet Address:
+            @Html.DisplayFor(i => item.ParkletAddress)
+        </p>
+        <p>
+            Other:
+            @Html.DisplayFor(i => item.Other)
+        </p>
+        <div class="row">
+            <div class="col-lg-5">
+                <p>Attachments:</p>
+            </div>
+            <div class="col-lg-5">
+                @{
+                    if (Model.Item1.FILE_NAME != null)
+                    {
+                        var str = Model.Item1.FILE_NAME.Split(',');
+                        foreach (var item2 in str)
+                        {
+                            var fileName = item2.Trim();
+                            <a href="@ConfigurationManager.AppSettings["VirtualDir"]@fileName" target="_blank">@fileName</a>
+                        }
+                    }
+                }
+            </div>
+        </div>
+        <input type="submit" value="Save" />
+        <p>&nbsp;</p>
+    }
+}

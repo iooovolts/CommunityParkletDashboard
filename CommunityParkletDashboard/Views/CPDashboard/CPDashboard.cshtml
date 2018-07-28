@@ -1,0 +1,61 @@
+﻿@model CommunityParkletDashboard.ViewModels.CPDashboardModel
+@{
+    ViewBag.Title = "CPDashboard";
+    var headers = new[] { "REFERENCE NUMBER", "NAME", "TITLE", "PHONE", "ADDRESS", "PARKLET ADDRESS", "STATUS", "NOTES" };
+}
+
+<div class="container-fluid ">
+    <table class="table table-bordered" border="1">
+        <thead>
+        <tr>
+            @{
+                foreach (var head in headers)
+                {
+                    <th scope="col">@head</th>
+                }
+            }
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @{
+            foreach (var item in Model.lParkletApplicationDtos)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RefNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ParkletTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ParkletAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Notes)
+                    </td>
+                    <td>
+                        <input type="submit" value="View" onclick="location.href='@Url.Action("EditCP","CPDashboard",new {refNumber = item.RefNumber},null)'" />
+                        <p></p>
+                        <a class="btn-danger" href="@Url.Action("DeleteCP","CPDashboard", new{refNumber = item.RefNumber}, null)" onclick="return confirm('Are you sure?');"><input type="button" value="Delete"/></a>
+                    </td>
+                </tr>
+            } 
+        }   
+        </tbody>
+    </table>
+    <input type="button" value="Export to Excel" onclick="location.href='@Url.Action("ExportCPToExcel", "CPDashboard")'" />
+    <p>&nbsp;</p>
+</div>
