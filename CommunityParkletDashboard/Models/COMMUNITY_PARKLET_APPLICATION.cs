@@ -18,11 +18,14 @@
         public string TYPE_OTHER { get; set; }
         public string TYPE_PLAY_AREA { get; set; }
         public string TYPE_REST_AREA { get; set; }
-        public string C_ADDRESS_WITH_MANUAL_FIELDS__AREA { get; set; }
-        public string C_ADDRESS_WITH_MANUAL_FIELDS__POSTCODE { get; set; }
-        public string C_ADDRESS_WITH_MANUAL_FIELDS__PREMISES_NO { get; set; }
-        public string C_ADDRESS_WITH_MANUAL_FIELDS__STREET_NAME { get; set; }
-        public string C_ADDRESS_WITH_MANUAL_FIELDS__TOWN { get; set; }
+        public string C_POSTCODE_SEARCH__ADDRESS_NAME { get; set; }
+        public string C_POSTCODE_SEARCH__CITY { get; set; }
+        public string C_POSTCODE_SEARCH__COUNTY { get; set; }
+        public string C_POSTCODE_SEARCH__LINE1 { get; set; }
+        public string C_POSTCODE_SEARCH__LINE2 { get; set; }
+        public string C_POSTCODE_SEARCH__LINE3 { get; set; }
+        public string C_POSTCODE_SEARCH__POSTCODE { get; set; }
+        public string C_POSTCODE_SEARCH__UPRN { get; set; }
         public string PARKLET__ADDRESS_NAME { get; set; }
         public string PARKLET__CITY { get; set; }
         public string PARKLET__COUNTY { get; set; }
