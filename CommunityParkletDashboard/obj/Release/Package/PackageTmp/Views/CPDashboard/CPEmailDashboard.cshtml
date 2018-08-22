@@ -1,4 +1,5 @@
-﻿@model CommunityParkletDashboard.ViewModels.CPEmailDashboardModel
+﻿@using PagedList.Mvc
+@model CommunityParkletDashboard.ViewModels.CPEmailDashboardModel
 @{
     ViewBag.Title = "CPEmailDashboard";
 }
@@ -8,40 +9,41 @@
 }
 
 <div class="container">
+    @Html.PagedListPager(Model.lParkletApplicationEmailDtos, page => Url.Action("CPEmailDashboard", new { page }))
     <table class="table table-bordered" border="1">
         <thead>
-        <tr>
-            @{
-                foreach (var head in headers)
-                {
-                    <th>@head</th>
+            <tr>
+                @{
+                    foreach (var head in headers)
+                    {
+                        <th>@head</th>
+                    }
                 }
-            }
-            <th></th>
-        </tr>
+                <th></th>
+            </tr>
         </thead>
         <tbody>
 
-        @{
-            foreach (var item in Model.lParkletApplicationEmailDtos)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.EmailAddress)
-                    </td>
-                    <td>
-@*                        <input type="button" value="Delete" onclick="location.href='@Url.Action("DeleteCPEmail","CPDashboard", new {id = item.Id}, null)'" />*@
-                        <a class="btn-danger" href="@Url.Action("DeleteCPEmail","CPDashboard", new{id = item.Id}, null)" onclick="return confirm('Are you sure?');"><input type="button" value="Delete" /></a>
-                    </td>
-                </tr>
+            @{
+                foreach (var item in Model.lParkletApplicationEmailDtos)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EmailAddress)
+                        </td>
+                        <td>
+                            @*                        <input type="button" value="Delete" onclick="location.href='@Url.Action("DeleteCPEmail","CPDashboard", new {id = item.Id}, null)'" />*@
+                            <a class="btn-danger" href="@Url.Action("DeleteCPEmail", "CPDashboard", new {id = item.Id}, null)" onclick="return confirm('Are you sure?');"><input type="button" value="Delete" /></a>
+                        </td>
+                    </tr>
+                }
             }
-        }
 
         </tbody>
     </table>
-    <input type="button" value="Export to Excel" onclick="location.href='@Url.Action("ExportCPEmailToExcel", "CPDashboard")'" />
+    <input type="button" value="Export to Excel" onclick="location.href = '@Url.Action("ExportCPEmailToExcel", "CPDashboard")'" />
     <p>&nbsp;</p>
 </div>

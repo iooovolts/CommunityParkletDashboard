@@ -59,6 +59,10 @@ new SelectListItem{Text = "Refused", Value = "Refused"}
             @Html.DisplayFor(i => item.ParkletDescription)
         </p>
         <p>
+            Maintenance:
+            @Html.DisplayFor(i => item.ParkletMaintenance)
+        </p>
+        <p>
             Type:
             @Html.DisplayFor(i => item.Type)
         </p>
@@ -86,7 +90,7 @@ new SelectListItem{Text = "Refused", Value = "Refused"}
                         foreach (var item2 in str)
                         {
                             var fileName = item2.Trim();
-                            <a href="@ConfigurationManager.AppSettings["VirtualDir"]@fileName" target="_blank">@fileName</a>
+                            <a href="@ConfigurationManager.AppSettings["VirtualExtDir"]@fileName" target="_blank">@fileName</a>
                         }
                     }
                 }

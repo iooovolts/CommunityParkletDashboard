@@ -55,21 +55,21 @@ namespace CommunityParkletDashboard.Context
 
         public COMMUNITY_PARKLET_APPLICATION EditParkletApplication(int refNumber)
         {
-            var lApplication = new COMMUNITY_PARKLET_APPLICATION();
+           // var lApplication = new COMMUNITY_PARKLET_APPLICATION();
             try
             {
                 using (SqlConnection conn = new SqlConnection(dbConnection))
                 {
                     var sql = $"SELECT * FROM {sqlTableCPA} WHERE REF_NUMBER = '{refNumber}'";
-                    lApplication = conn.Query<COMMUNITY_PARKLET_APPLICATION>(sql).Where(c => c.REF_NUMBER.Equals(refNumber)).SingleOrDefault();
+                    return conn.Query<COMMUNITY_PARKLET_APPLICATION>(sql).Where(c => c.REF_NUMBER.Equals(refNumber)).SingleOrDefault();
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(@"ERROR: " + ex.Message);
-                return lApplication;
+                throw ex;
             }
-            return lApplication;
+
         }
 
         public bool UpdateParkletApplication(COMMUNITY_PARKLET_APPLICATION cpa, int refNumber)
@@ -79,7 +79,7 @@ namespace CommunityParkletDashboard.Context
                 using (SqlConnection conn = new SqlConnection(dbConnection))
                 {
                     var sql =
-                        $"UPDATE {sqlTableCPA} SET [EMAIL] = '{cpa.EMAIL}', [PHONE] = '{cpa.PHONE}',[NOTES] = '{cpa.NOTES}',[STATUS] = '{cpa.STATUS}' WHERE REF_NUMBER = '{refNumber}'";
+                        $"UPDATE {sqlTableCPA} SET [NAME] = '{cpa.NAME}', [EMAIL] = '{cpa.EMAIL}', [PHONE] = '{cpa.PHONE}',[NOTES] = '{cpa.NOTES}',[STATUS] = '{cpa.STATUS}', [PARKLET_24HR_CONTACT] = '{cpa.PARKLET_24HR_CONTACT}', [PARKLET_TIME_FRAME] = '{cpa.PARKLET_TIME_FRAME}' WHERE REF_NUMBER = '{refNumber}'";
                     conn.Execute(sql);
                 }
             }

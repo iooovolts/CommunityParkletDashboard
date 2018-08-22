@@ -7,6 +7,7 @@
         public string Other { get; set; }
         public string Parklet24hrContact { get; set; }
         public string ParkletDescription { get; set; }
+        public string ParkletMaintenance { get; set; }
         public string ParkletTimeFrame { get; set; }
         public string ParkletTitle { get; set; }
         public string Phone { get; set; }

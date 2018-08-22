@@ -8,6 +8,7 @@
         public string OTHER { get; set; }
         public string PARKLET_24HR_CONTACT { get; set; }
         public string PARKLET_DESCRIPTION { get; set; }
+        public string PARKLET_MAINTENANCE { get; set; }
         public string PARKLET_TIME_FRAME { get; set; }
         public string PARKLET_TITLE { get; set; }
         public string PHONE { get; set; }

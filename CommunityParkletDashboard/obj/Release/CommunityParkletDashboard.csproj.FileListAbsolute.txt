@@ -184,3 +184,7 @@ C:\Users\sostephens\Documents\GitHub\CommunityParkletDashboard\CommunityParkletD
 C:\Users\sostephens\Documents\GitHub\CommunityParkletDashboard\CommunityParkletDashboard\obj\Release\CommunityParkletDashboard.csproj.CopyComplete
 C:\Users\sostephens\Documents\GitHub\CommunityParkletDashboard\CommunityParkletDashboard\obj\Release\CommunityParkletDashboard.dll
 C:\Users\sostephens\Documents\GitHub\CommunityParkletDashboard\CommunityParkletDashboard\obj\Release\CommunityParkletDashboard.pdb
+C:\Users\sostephens\Documents\GitHub\CommunityParkletDashboard\CommunityParkletDashboard\bin\PagedList.dll
+C:\Users\sostephens\Documents\GitHub\CommunityParkletDashboard\CommunityParkletDashboard\bin\PagedList.Mvc.dll
+C:\Users\sostephens\Documents\GitHub\CommunityParkletDashboard\CommunityParkletDashboard\bin\PagedList.xml
+C:\Users\sostephens\Documents\GitHub\CommunityParkletDashboard\CommunityParkletDashboard\bin\PagedList.Mvc.xml

@@ -1,14 +1,17 @@
 ﻿using System.Collections.Generic;
 using CommunityParkletDashboard.DTOs;
 using CommunityParkletDashboard.Models;
+using PagedList;
 
 namespace CommunityParkletDashboard.ViewModels
 {
     public class CPEmailDashboardModel
     {
-        public CPEmailDashboardModel(List<COMMUNITY_PARKLET_APPLICATION_EMAIL> lApplications)
+        public IPagedList<ParkletApplicationEmailDTO> lParkletApplicationEmailDtos { get; set; }
+
+        public CPEmailDashboardModel(List<COMMUNITY_PARKLET_APPLICATION_EMAIL> lApplications, int? page)
         {
-            lParkletApplicationEmailDtos = new List<ParkletApplicationEmailDTO>();
+            var tempList = new List<ParkletApplicationEmailDTO>();
 
             if (lApplications != null)
             {
@@ -20,10 +23,11 @@ namespace CommunityParkletDashboard.ViewModels
                         Name = application.NAME,
                         EmailAddress = application.EMAIL_ADDRESS
                     };
-                    lParkletApplicationEmailDtos.Add(applicationDTO);
+                    tempList.Add(applicationDTO);
                 }
+
+                lParkletApplicationEmailDtos = tempList.ToPagedList(page ?? 1, 15);
             }
         }
-        public List<ParkletApplicationEmailDTO> lParkletApplicationEmailDtos { get; set; }
     }
 }

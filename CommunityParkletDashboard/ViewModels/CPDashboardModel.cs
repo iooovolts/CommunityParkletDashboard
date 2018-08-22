@@ -1,15 +1,19 @@
 ﻿using System.Collections.Generic;
 using CommunityParkletDashboard.DTOs;
 using CommunityParkletDashboard.Models;
+using PagedList;
 
 namespace CommunityParkletDashboard.ViewModels
 {
     public class CPDashboardModel
     {
-        public CPDashboardModel(List<COMMUNITY_PARKLET_APPLICATION> lApplications)
-        {
-            lParkletApplicationDtos = new List<ParkletApplicationDTO>();
+        public List<ParkletApplicationDTO> lParkletApplicationDtos { get; set; }
+        public IPagedList<ParkletApplicationDTO> lPagedParkletApplicationDtos { get; set; }
 
+        public CPDashboardModel(List<COMMUNITY_PARKLET_APPLICATION> lApplications, int? page)
+        {
+            var tempList = new List<ParkletApplicationDTO>();
+             
             if (lApplications != null)
             {
                 foreach (COMMUNITY_PARKLET_APPLICATION application in lApplications)
@@ -20,6 +24,7 @@ namespace CommunityParkletDashboard.ViewModels
                         Name = application.NAME,
                         Parklet24hrContact = application.PARKLET_24HR_CONTACT,
                         ParkletDescription = application.PARKLET_DESCRIPTION,
+                        ParkletMaintenance = application.PARKLET_MAINTENANCE,
                         ParkletTimeFrame = application.PARKLET_TIME_FRAME,
                         ParkletTitle = application.PARKLET_TITLE,
                         Phone = application.PHONE,
@@ -42,8 +47,10 @@ namespace CommunityParkletDashboard.ViewModels
                                      application.PARKLET__LINE3 + "\n" + application.PARKLET__POSTCODE;
                     applicationDTO.ParkletAddress = parkletAddress;
 
-                    lParkletApplicationDtos.Add(applicationDTO);
+                    tempList.Add(applicationDTO);
                 }
+
+                lPagedParkletApplicationDtos = tempList.ToPagedList(page ?? 1, 30);
             }
         }
 
@@ -60,6 +67,7 @@ namespace CommunityParkletDashboard.ViewModels
                     Name = lApplications.NAME,
                     Parklet24hrContact = lApplications.PARKLET_24HR_CONTACT,
                     ParkletDescription = lApplications.PARKLET_DESCRIPTION,
+                    ParkletMaintenance = lApplications.PARKLET_MAINTENANCE,
                     ParkletTimeFrame = lApplications.PARKLET_TIME_FRAME,
                     ParkletTitle = lApplications.PARKLET_TITLE,
                     Phone = lApplications.PHONE,
@@ -85,7 +93,5 @@ namespace CommunityParkletDashboard.ViewModels
 
             }
         }
-
-        public List<ParkletApplicationDTO> lParkletApplicationDtos { get; set; }
     }
 }

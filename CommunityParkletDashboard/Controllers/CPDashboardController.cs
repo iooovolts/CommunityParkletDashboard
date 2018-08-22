@@ -14,30 +14,39 @@ namespace CommunityParkletDashboard.Controllers
         EformsContext _context = new EformsContext();
 
         [HttpGet]
-        public ActionResult CPDashboard()
+        public ActionResult CPDashboard(int? page)
         {
             var parklets = _context.GetParkletApplications();
-            var model = new CPDashboardModel(parklets);
+            var model = new CPDashboardModel(parklets, page);
             return View(model);
         }
 
-        public ActionResult CPEmailDashboard()
+        public ActionResult CPEmailDashboard(int? page)
         {
             var parklets = _context.GetParkletApplicationsEmails();
-            var model = new CPEmailDashboardModel(parklets);
+            var model = new CPEmailDashboardModel(parklets, page);
             return View(model);
         }
 
         public ActionResult EditCP(int refNumber)
         {
-            var item1 = _context.EditParkletApplication(refNumber);
-            var item2 = new CPDashboardModel(item1);
-            var model = new EditCPModel
+            try
             {
-                Item1 = item1,
-                Item2 = item2
-            };
-            return View(model);
+                var item1 = _context.EditParkletApplication(refNumber);
+                var item2 = new CPDashboardModel(item1);
+                var model = new EditCPModel
+                {
+                    Item1 = item1,
+                    Item2 = item2
+                };
+                return View(model);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            
         }
 
         [HttpPost]
@@ -68,10 +77,10 @@ namespace CommunityParkletDashboard.Controllers
             return RedirectToAction("CPDashboard");
         }
 
-        public void ExportCPToExcel()
+        public void ExportCPToExcel(int? page)
         {
             var grid = new GridView();
-            var cpDashboardModel = new CPDashboardModel(_context.GetParkletApplications());
+            var cpDashboardModel = new CPDashboardModel(_context.GetParkletApplications(), page);
             string fileName = String.Format("attachment;filename=CPApplications_{0:yyyyMMdd_Hmm}.xls", DateTime.Now);
 
             grid.DataSource = cpDashboardModel.lParkletApplicationDtos;
@@ -88,10 +97,10 @@ namespace CommunityParkletDashboard.Controllers
             Response.End();
         }
 
-        public void ExportCPEmailToExcel()
+        public void ExportCPEmailToExcel(int? page)
         {
             var grid = new GridView();
-            var cpDashboardModel = new CPEmailDashboardModel(_context.GetParkletApplicationsEmails());
+            var cpDashboardModel = new CPEmailDashboardModel(_context.GetParkletApplicationsEmails(), page);
             string fileName = String.Format("attachment;filename=CPEmails_{0:yyyyMMdd_Hmm}.xls", DateTime.Now);
 
             grid.DataSource = cpDashboardModel.lParkletApplicationEmailDtos;
